@@ -10,12 +10,11 @@ import java.util.Properties;
 public class hooks {
 
     private  WebDriver driver;
-    PropReader propReader;
     Properties prop;
 
     @Before(order = 0)
     public void readPropFile() {
-        prop=propReader.initProp();
+        prop= PropReader.initProp();
     }
 
     @Before(order = 1)

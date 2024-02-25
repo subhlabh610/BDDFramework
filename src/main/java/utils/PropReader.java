@@ -4,12 +4,12 @@ import java.io.FileReader;
 import java.util.Properties;
 
 public class PropReader {
-    Properties prop;
+    static Properties prop;
 
-    public Properties initProp(){
+    public static Properties initProp(){
         try {
             prop = new Properties();
-            FileReader fileReader = new FileReader("E:\\Workspace\\BDDFramework\\src\\test\\utils\\driver.properties");
+            FileReader fileReader = new FileReader("src/main/java/utils/driver.properties");
             prop.load(fileReader);
         }catch(Exception e){
 

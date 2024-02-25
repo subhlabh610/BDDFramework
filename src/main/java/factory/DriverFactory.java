@@ -4,20 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import java.io.FileReader;
+import utils.PropReader;
 import java.util.Properties;
 
 public class DriverFactory {
 
-    private static WebDriver driver;
+    public static WebDriver driver=null;
 
     public static WebDriver initDriverInstance() {
         try {
-            FileReader fileReader = new FileReader("");
-            Properties prop = new Properties();
-            prop.load(fileReader);
+            Properties prop=PropReader.initProp();
             String browserType =prop.getProperty("browserName");
-            if (driver != null) {
+            if (driver == null) {
                 switch (browserType.toLowerCase()) {
                     case "chrome":
                         driver = new ChromeDriver();
